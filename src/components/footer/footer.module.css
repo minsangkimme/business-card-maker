@@ -1,4 +1,4 @@
-@value makerWhite, makerGreen from '../../common/color.css';
+@value makerWhite, makerGreen from '../../common/colors.css';
 
 .footer {
     width: 100%;
