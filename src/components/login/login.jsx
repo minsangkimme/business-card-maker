@@ -7,7 +7,6 @@ import styles from './login.module.css';
 const Login = ({authService}) => {
     const navigate = useNavigate();
     const goToMaker = (userId) => {
-        console.log('userId', userId)
         navigate('/maker', {            
             state: { id: userId }
         });
@@ -20,10 +19,11 @@ const Login = ({authService}) => {
     };
 
     useEffect(() => {
-        authService
-         .onAuthChange(user => {             
+        const off = authService.onAuthChange(user => {             
             user && goToMaker(user.uid);            
          });
+
+         return () => off();
     });
     return (
         <section className={styles.login}>

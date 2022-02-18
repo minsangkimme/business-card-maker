@@ -11,7 +11,7 @@ class AuthService {
     }
 
     onAuthChange(onUserChanged) {
-        firebaseAuth.onAuthStateChanged(user => {
+        return firebaseAuth.onAuthStateChanged(user => {
             onUserChanged(user);
         });
     }
